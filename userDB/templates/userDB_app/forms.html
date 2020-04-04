@@ -1,0 +1,59 @@
+{% extends 'userDB_app/base.html' %}
+
+{% block title %}
+Form
+{% endblock %}
+
+{% block body_block %}
+
+<div class="jumbotron bg-secondary">
+    <h1 class="text-center">Welcome!</h1>
+    <h2 class="text-center">Add user to Database </h2>
+    <br>
+
+
+    <div class="card text-white bg-dark text-center container"
+        style="max-width: 28rem;padding-top: 20px;padding-right: 20px;padding-left: 20px;">
+        <div class="card-header">User Form</div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <form method="POST" class="">
+                    <div class="form-group row">
+                        {{form.first_name}}
+                        <br><br>
+                        {{form.last_name}}
+                        <br><br>
+
+                        {{form.user_name}}
+                        <br><br>
+
+                        {{form.email}}
+                        <br><br>
+
+                        {{form.verify_email}}
+                        <br><br>
+                        {{form.bio_text}}
+                        <br><br>
+                        {{form.bot_catcher}}
+
+                        <div class="" style="width: 28rem;">
+                            <br>
+                            <input class=" btn btn-outline-success container" type="submit" value="Submit">
+                        </div>
+
+
+
+                        {% csrf_token %}
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'userDB_app/base.html' %}
+
+{% block title %}
+User Database
+{% endblock %}
+
+{% block body_block %}
+
+<div class="jumbotron bg-secondary ">
+    <h1 class="text-center">Welcome!</h1>
+
+    <br>
+    <h2 class="text-center">Users List from Database </h2>
+    <br>
+    <div class="container text-monospace">
+        {% if user_db %}
+        <table class="table container table-dark table-bordered table-hover table-responsive-sm table-striped">
+            <thead class="thead-dark">
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+            </thead>
+            {% for acc in user_db %}
+            <tr>
+                <td scope="row">{{ acc.first_name }}</td>
+                <td scope="row">{{ acc.last_name }}</td>
+                <td scope="row">{{ acc.username|lower }}</td>
+                <td scope="row">{{ acc.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No users found!</p>
+        {% endif %}
+
+    </div>
+    <br>
+    <br>
+
+
+
+
+
+    <div class="container text-center">
+
+        <div class="row">
+            {% for user in user_db %}
+            <div class="w-100 card text-white text-center shadow bg-secondary card-margin" style="max-width: 33rem;">
+                <li class="text-white text-monospace lead bg-secondary card-margin">User info
+                    of
+                    {{ user.username }}:
+                    <div class="text-center">
+                        <img class="img-fluid" src="{{ user.photo.url }}">
+
+                        <p class="">{{ user.username }}'s Photo</p>
+                    </div>
+                    <ol class="list-group-item disabled ">First Name: {{ user.first_name }}</ol>
+                    <ol class="list-group-item disabled ">Last Name: {{ user.last_name }}</ol>
+                    <ol class="list-group-item disabled ">User Name: {{ user.username|lower }}</ol>
+                    <ol class="list-group-item disabled ">Email: {{ user.email }}</ol>
+                </li>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
