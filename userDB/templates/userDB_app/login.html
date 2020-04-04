@@ -7,20 +7,17 @@ Login
 {% block body_block %}
 
 
-<div class="jumbotron bg-secondary jumbotron-fluid">
-    <div class="container">
-        <h1>Please Login</h1>
-        <form action="{% url 'userDB_app:user_login' %}" method="post">
-            {% csrf_token %}
-            <label for="username">Username: </label>
-            <input type="text" name="username" placeholder="Enter Username">
-
-            <label for="password">Password: </label>
-            <input type="password" name="password">
-
-            <input type="submit" value="Login">
-        </form>
-    </div>
+<div class="login">
+    <h1 class="text-monospace">Login</h1>
+    <form action="{% url 'userDB_app:user_login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <br>
+        <p class="text-monospace text-white">Don't have an account yet? Don't worry. We've got your back!</p>
+        <a class="btn btn-primary btn-block btn-large" href="{% url 'userDB_app:register' %}">Register here</a>
+    </form>
 </div>
 
 {% endblock %}

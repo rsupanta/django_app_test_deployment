@@ -34,9 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'userDB_app:forms' %}">Form</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'userDB_app:register' %}">Registration</a>
-                </li>
+
 
                 {% if user.is_authenticated %}
 
@@ -77,6 +75,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <script src="{% static 'scripts/script.js' %}"></script>
 
 </body>
 
