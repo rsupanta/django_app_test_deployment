@@ -6,7 +6,7 @@ Register New User
 
 {% block body_block %}
 
-
+<!-- 
 <div class="jumbotron bg-secondary jumbotron-fluid">
     <div class="container">
         {% if registered %}
@@ -22,7 +22,27 @@ Register New User
         </form>
         {% endif %}
     </div>
+</div> -->
+
+<div class="login text-white">
+    {% if registered %}
+    <h1>Thank you for registration!</h1>
+    {% else %}
+    <h1>Register Here</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.username }}
+        {{ user_form.password }}
+        {{ user_form.email }}
+        {{ profile_form.portfolio_site }}
+        {{ profile_form.profile_pic }}
+        <button type="submit" class="btnn btnn-primary btnn-block btnn-large"
+            style="padding-top: 10px; margin-top: 10px;">Let Me
+            Register!</button>
+    </form>
+    {% endif %}
 </div>
+
 
 
 {% endblock %}

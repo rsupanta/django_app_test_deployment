@@ -11,12 +11,12 @@ Login
     <h1 class="text-monospace">Login</h1>
     <form action="{% url 'userDB_app:user_login' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required="required" />
-        <input type="password" name="password" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <input class='input' type="text" name="username" placeholder="Username" required="required" />
+        <input class='input' type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" class="btnn btnn-primary btnn-block btnn-large">Let me in.</button>
         <br>
-        <p class="text-monospace text-white">Don't have an account yet? Don't worry. We've got your back!</p>
-        <a class="btn btn-primary btn-block btn-large" href="{% url 'userDB_app:register' %}">Register here</a>
+        <p class="text-monospace text-white">Don't have an account yet? <br>Don't worry. We've got your back!</p>
+        <a class="btnn btnn-primary btnn-block btnn-large" href="{% url 'userDB_app:register' %}">Register here</a>
     </form>
 </div>
 

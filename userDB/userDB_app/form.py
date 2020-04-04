@@ -113,7 +113,30 @@ class NewUserForm(forms.ModelForm):
 
 
 class User_login_form(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'Placeholder': 'Username...',
+            'class': 'input'
+        }
+    )
+    )
+
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={
+            'Placeholder': 'Email...',
+            'class': 'input'
+        }
+    )
+    )
+
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            'Placeholder': 'Password...',
+            'class': 'input'
+        }
+    )
+    )
 
     class Meta():
         model = User
@@ -125,6 +148,16 @@ class User_login_form(forms.ModelForm):
 
 
 class User_profile_info_form(forms.ModelForm):
+
+    portfolio_site = forms.URLField(
+        widget=forms.URLInput(
+            attrs={
+                'Placeholder': 'Portfolio Site URL...',
+                'class': 'input'
+            }
+        )
+    )
+
     class Meta():
         model = UserProfileInfo
         fields = (

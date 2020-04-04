@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from userDB_app import views
-# from userDB import settings
-# from django.contrib.staticfiles.urls import static
-# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from userDB import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from userDB_app import urls
 
 
@@ -28,5 +28,5 @@ urlpatterns = [
     path('', include('userDB_app.urls')),
 ]
 
-# urlpatterns += staticfiles_urlpatterns()
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
