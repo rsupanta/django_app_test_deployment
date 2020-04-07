@@ -14,13 +14,11 @@ def index(request):
     DB_form = NewUserForm()
 
     if request.method == 'POST':
-        DB_form = NewUserForm(data=request.POST)
+        DB_form = NewUserForm(request.POST)
 
         if DB_form.is_valid():
-            profile = DB_form.save(commit=False)
-            if 'photo' in request.FILES:
-                NewUserForm.photo = request.FILES['photo']
-            DB_form.save()
+
+            DB_form.save(commit=True)
 
             return userView(request)
 
@@ -47,7 +45,7 @@ def userView(request):
         request,
         'userDB_app/user.html',
         {
-            'form': forms, 'user_db': user_data
+            'user_db': user_data
         }
     )
 

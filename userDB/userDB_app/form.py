@@ -91,7 +91,7 @@ class NewUserForm(forms.ModelForm):
     )
     )
 
-    photo = forms.ImageField(
+    photo = forms.FileField(
         widget=forms.FileInput(
             attrs={
                 'class': 'card-margin',
